@@ -3,10 +3,9 @@ name: 'Terraform'
 on:
   workflow_dispatch:
     inputs:
-      TFAction:
-        description: "Terraform Action- Apply or Destroy"     
+      AADName:
+        description: "Azure AD User Name"     
         required: true
-        default: "apply"
 
 permissions:
   contents: read
@@ -42,10 +41,6 @@ jobs:
     - name: Terraform Plan
       run: terraform plan -out=plan.tfplan -input=false
        
-    - name: Terraform Apply
-      if: ${{ inputs.TFAction == 'apply'}}  
+    - name: Terraform Apply  
       run: terraform apply -input=false -auto-approve plan.tfplan
 
-    - name: Terraform Destroy
-      if: ${{ inputs.TFAction == 'destroy' }} 
-      run: terraform destroy -input=false -auto-approve

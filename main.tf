@@ -11,10 +11,6 @@ locals {
   users       = csvdecode(file("${path.module}/users.csv"))
 }
 
-resource "random_pet" "suffix" {
-  length = 2
-}
-
 # Create users
 resource "azuread_user" "users" {
   for_each = { for user in local.users : user.first_name => user }
