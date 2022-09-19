@@ -1,11 +1,10 @@
 name: 'Terraform AD Users Creation'
 
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+    workflows: ["Update testusers.csv"]
+    types:
+      - completed
 
 permissions:
   contents: read
