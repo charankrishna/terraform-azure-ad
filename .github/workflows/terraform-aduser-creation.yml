@@ -1,9 +1,7 @@
 name: 'Terraform AD Users Creation'
 
 on:
-  push:
-    branches:
-      - main
+  push
 
 permissions:
   contents: read
