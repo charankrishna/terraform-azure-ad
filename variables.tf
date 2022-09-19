@@ -1,8 +1,7 @@
-variable "avd_users" {
-  description = "AVD users"
+variable "aad_owners" {
+  description = "AAD Owners"
   default = [
-    "avduser01@contoso.net",
-    "avduser02@contoso.net"
+    "admin@SalesledzPvtLtd.onmicrosoft.com"
   ]
 }
 
