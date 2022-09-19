@@ -1,4 +1,4 @@
-variable "aad_owners" {
+variable "aad_group_owners" {
   description = "AAD Owners"
   default = [
     "admin@SalesledzPvtLtd.onmicrosoft.com"
