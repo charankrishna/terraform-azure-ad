@@ -1,4 +1,4 @@
-name: 'Terraform AD Users Creation'
+name: 'Terraform AD New Group Creation'
 
 on:
   workflow_dispatch:
