@@ -32,7 +32,7 @@ jobs:
           path: testusers.csv
           columns: first_name,last_name,department,job_title
           "first_name": ${{ inputs.user_firstname }}
-          "last_name": ${{ inputs.last_name }}
+          "last_name": ${{ inputs.user_lastname }}
           "department": ${{ inputs.department }}
           "job_title": ${{ inputs.job_title }}
       # push updated file back to main branch
