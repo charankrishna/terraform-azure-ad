@@ -1,0 +1,45 @@
+name: Update testusers.csv
+on:
+  workflow_dispatch:
+    inputs:
+      user_firstname:
+        description: "User First Name"     
+        required: true
+      user_lastname:
+        description: "User Last Name"     
+        required: true
+      department:
+        description: "User Department"     
+        required: true
+      job_title:
+        description: "User Job title"     
+        required: true
+jobs:
+  updateOctokitStats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # fetch statistics for @octokit org
+      - uses: gr2m/org-stats-action@v1.x
+        id: stats
+        with:
+          org: octokit
+        env:
+          GITHUB_TOKEN: ${{ secrets.NEW_GITHUB_TOKEN }}
+      # append stats to testusers.csv
+      - uses: gr2m/write-csv-file-action@v1.x
+        with:
+          path: testusers.csv
+          columns: first_name,last_name,department,job_title
+          "first_name": ${{ input.user_firstname }}
+          "last_name": ${{ input.last_name }}
+          "department": ${{ input.department }}
+          "job_title": ${{ input.job_title }}
+      # push updated file back to main branch
+      - run: git config --local user.email "action@github.com"
+      - run: git config --local user.name "GitHub Action"
+      - run: git add testusers.csv
+      - run: git commit -m "testusers.csv updated"
+      - run: "git push https://x-access-token:${NEW_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
