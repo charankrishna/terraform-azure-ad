@@ -31,10 +31,10 @@ jobs:
         with:
           path: testusers.csv
           columns: first_name,last_name,department,job_title
-          "first_name": ${{ input.user_firstname }}
-          "last_name": ${{ input.last_name }}
-          "department": ${{ input.department }}
-          "job_title": ${{ input.job_title }}
+          "first_name": ${{ inputs.user_firstname }}
+          "last_name": ${{ inputs.last_name }}
+          "department": ${{ inputs.department }}
+          "job_title": ${{ inputs.job_title }}
       # push updated file back to main branch
       - run: git config --local user.email "action@github.com"
       - run: git config --local user.name "GitHub Action"
