@@ -41,5 +41,8 @@ jobs:
       run: terraform plan -out=plan.tfplan -input=false
        
     - name: Terraform Apply  
+      run: terraform apply -input=false -auto-approve plan.tfplan -target azuread_user.users
+
+    - name: Terraform Apply  
       run: terraform apply -input=false -auto-approve plan.tfplan
 

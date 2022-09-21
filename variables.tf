@@ -7,6 +7,6 @@ variable "aad_group_owners" {
 
 variable "aad_group_name" {
   type        = string
-  default     = "Test"
+  default     = "DevOps"
   description = "Azure Active Directory Group for users"
 }
