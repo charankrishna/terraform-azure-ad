@@ -8,14 +8,14 @@ on:
       user_lastname:
         description: "User Last Name"     
         required: true
-    department:
+      department:
         type: choice
         description: "User Department"
         required: true
         options: 
         - DevOps
         - QA
-    job_title:
+      job_title:
         type: choice
         description: "User Job title"
         required: true
