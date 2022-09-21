@@ -37,7 +37,7 @@ jobs:
       # append stats to testusers.csv
       - uses: gr2m/write-csv-file-action@v1.x
         with:
-          path: testusers.csv
+          path: users.csv
           columns: first_name,last_name,department,job_title
           "first_name": ${{ inputs.user_firstname }}
           "last_name": ${{ inputs.user_lastname }}
