@@ -2,7 +2,7 @@ name: 'Terraform AD Users Creation'
 
 on:
   workflow_run:
-    workflows: ["Update testusers.csv"]
+    workflows: ["Update users.csv"]
     types:
       - completed
   workflow_dispatch:

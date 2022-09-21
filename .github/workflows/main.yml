@@ -1,4 +1,4 @@
-name: Update testusers.csv
+name: Update users.csv
 on:
   workflow_dispatch:
     inputs:
@@ -46,8 +46,8 @@ jobs:
       # push updated file back to main branch
       - run: git config --local user.email "action@github.com"
       - run: git config --local user.name "GitHub Action"
-      - run: git add testusers.csv
-      - run: git commit -m "testusers.csv updated"
+      - run: git add users.csv
+      - run: git commit -m "users.csv updated"
       - run: "git push https://x-access-token:${NEW_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git main"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
