@@ -2,7 +2,7 @@ name: 'Terraform AD New Group Creation'
 
 on:
   workflow_run:
-    workflows: ["Update users.csv"]
+    workflows: ["Update groups.csv"]
     types:
       - completed
   workflow_dispatch:
