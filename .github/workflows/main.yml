@@ -22,6 +22,7 @@ on:
         options: 
         - Engineer
         - Manager
+      
 jobs:
   updateOctokitStats:
     runs-on: ubuntu-latest

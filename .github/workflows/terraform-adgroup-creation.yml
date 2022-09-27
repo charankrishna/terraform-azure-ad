@@ -1,11 +1,11 @@
 name: 'Terraform AD New Group Creation'
 
 on:
+  workflow_run:
+    workflows: ["Update users.csv"]
+    types:
+      - completed
   workflow_dispatch:
-    inputs:
-      AADGroupName:
-        description: "Azure AD New Group Name"     
-        required: true
 
 permissions:
   contents: read
