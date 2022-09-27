@@ -25,7 +25,15 @@ on:
       group1:
         type: boolean
         required: true
-        description: Check for adding this group.
+        description: group1
+      group2:
+        type: boolean
+        required: true
+        description: group2
+      group3:
+        type: boolean
+        required: true
+        description: group3
       
 jobs:
   updateOctokitStats:
