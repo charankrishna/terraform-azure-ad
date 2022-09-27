@@ -22,6 +22,10 @@ on:
         options: 
         - Engineer
         - Manager
+      group1:
+        type: boolean
+        required: true
+        description: Check for adding this group.
       
 jobs:
   updateOctokitStats:
