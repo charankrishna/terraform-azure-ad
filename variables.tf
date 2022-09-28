@@ -1,8 +1,6 @@
-variable "aad_group_owners" {
-  description = "AAD Owners"
-  default = [
-    "admin@SalesledzPvtLtd.onmicrosoft.com",
-  ]
+variable "group1_value" {
+  type = bool
+  default = false
 }
 
 variable "aad_group_name" {

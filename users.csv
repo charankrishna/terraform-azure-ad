@@ -1,3 +1,4 @@
-first_name,last_name,department,job_title,group1,group2,group3
+first_name,last_name,department,job_title,user_principal_name,group1,group2,group3
 
 
+suresh,kumar,DevOps,Engineer,suresh.kumar@SalesledzPvtLtd.onmicrosoft.com,true,false,true

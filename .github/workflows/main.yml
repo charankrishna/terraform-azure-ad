@@ -58,11 +58,12 @@ jobs:
       - uses: gr2m/write-csv-file-action@v1.x
         with:
           path: users.csv
-          columns: first_name,last_name,department,job_title,group1,group2,group3
+          columns: first_name,last_name,department,job_title,user_principal_name,group1,group2,group3
           "first_name": ${{ inputs.user_firstname }}
           "last_name": ${{ inputs.user_lastname }}
           "department": ${{ inputs.department }}
           "job_title": ${{ inputs.job_title }}
+          "user_principal_name": ${{ inputs.user_firstname }}'.'${{ inputs.user_lastname }}'@SalesledzPvtLtd.onmicrosoft.com'
           "group1": ${{ inputs.group1 }}
           "group2": ${{ inputs.group2 }}
           "group3": ${{ inputs.group3 }}

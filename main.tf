@@ -15,13 +15,7 @@ locals {
 resource "azuread_user" "users" {
   for_each = { for user in local.users : user.first_name => user }
 
-  user_principal_name = format(
-    "%s%s%s@%s",
-    substr(lower(each.value.first_name), 0, 1),
-    lower(each.value.last_name),
-    "",
-    local.domain_name
-  )
+  user_principal_name = each.value.user_principal_name
 
   password = format(
     "%s%s%s!A",
@@ -33,5 +27,30 @@ resource "azuread_user" "users" {
 
   display_name = "${each.value.first_name} ${each.value.last_name}"
   department   = each.value.department
-  job_title    = each.value.job_title
+}
+
+# data "azuread_group" "group1" {
+#   display_name     = "group1"
+#   security_enabled = true
+# }
+
+# resource "azuread_group_member" "example" {
+#   group_object_id  = data.azuread_group.group1.id
+#   member_object_id = azuread_user.users[each.key].id
+# }
+
+data "azuread_user" "user" {
+  for_each = { for i , user in local.users : i => user }
+  user_principal_name = each.value.user_principal_name
+}
+
+data "azuread_group" "group1" {
+  display_name     = "group1"
+  security_enabled = true
+}
+
+resource "azuread_group_member" "member" {
+  for_each = { for i,user in local.users : i => user  if user.group1 }
+  group_object_id  = data.azuread_group.group1.id
+  member_object_id = data.azuread_user.user[each.key].id
 }
