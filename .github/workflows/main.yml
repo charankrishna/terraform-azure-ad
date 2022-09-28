@@ -63,7 +63,7 @@ jobs:
           "last_name": ${{ inputs.user_lastname }}
           "department": ${{ inputs.department }}
           "job_title": ${{ inputs.job_title }}
-          "user_principal_name": ${{ inputs.user_firstname }}'.'${{ inputs.user_lastname }}'@SalesledzPvtLtd.onmicrosoft.com'
+          "user_principal_name": ${{ inputs.user_firstname }}.${{ inputs.user_lastname }}@SalesledzPvtLtd.onmicrosoft.com
           "group1": ${{ inputs.group1 }}
           "group2": ${{ inputs.group2 }}
           "group3": ${{ inputs.group3 }}
