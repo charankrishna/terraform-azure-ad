@@ -1,3 +1,4 @@
 first_name,last_name,department,job_title,user_principal_name,group1,group2,group3
 
 charan,krishna,DevOps,Engineer,charan.krishna@SalesledzPvtLtd.onmicrosoft.com,true,false,false
+charan,krishna,DevOps,Engineer,charan.krishna@SalesledzPvtLtd.onmicrosoft.com,false,true,true
