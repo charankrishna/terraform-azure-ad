@@ -45,7 +45,7 @@ on:
       
 jobs:
   createnewusers:
-    if: inputs.user_action === 'Create User'
+    if: inputs.user_action == 'Create User'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -79,7 +79,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   updateusers:
-    if: inputs.user_action === 'Update User'
+    if: inputs.user_action == 'Update User'
     runs-on: ubuntu-latest
     steps:
 
@@ -113,7 +113,7 @@ jobs:
           branch: main
   
   deleteusers:
-    if: inputs.user_action === 'Delete User'
+    if: inputs.user_action == 'Delete User'
     runs-on: ubuntu-latest
     steps:
 
