@@ -21,7 +21,7 @@ with open(filename, 'r') as csvfile, tempfile:
     reader = csv.DictReader(csvfile, fieldnames=fields)
     writer = csv.DictWriter(tempfile, fieldnames=fields)
     for row in reader:
-        if row['first_name'] != str('charan'):
+        if row['first_name'] != str('Krishna'):
             print('updating row', row['first_name'])
             row = {'first_name': row['first_name'], 'last_name': row['last_name'], 'department': row['department'], 'job_title': row['job_title']}
             writer.writerow(row)    
