@@ -16,15 +16,14 @@ filename = 'testusers.csv'
 tempfile = NamedTemporaryFile(mode='w', delete=False)
 
 fields = ["first_name","last_name","department","job_title"]
-
+updatedlist = []
 with open(filename, 'r') as csvfile, tempfile:
     reader = csv.DictReader(csvfile, fieldnames=fields)
     writer = csv.DictWriter(tempfile, fieldnames=fields)
     for row in reader:
-        if row['first_name'] == str('charan'):
+        if row['first_name'] != str('charan'):
             print('updating row', row['first_name'])
-            row['first_name'], row['last_name'], row['department'], row['job_title'] = 'Krishna', 'sai', 'DevOps', 'Engineer'
-        row = {'first_name': row['first_name'], 'last_name': row['last_name'], 'department': row['department'], 'job_title': row['job_title']}
-        writer.writerow(row)
+            row = {'first_name': row['first_name'], 'last_name': row['last_name'], 'department': row['department'], 'job_title': row['job_title']}
+            writer.writerow(row)    
 
 shutil.move(tempfile.name, filename)
